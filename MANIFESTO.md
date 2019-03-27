@@ -1,13 +1,3 @@
----
-author:
-    - Pedro Pinto da Silva
-date: \today{}
-geometry: margin=3cm
-fontsize: 12pt
-header-includes:
-    - \setlength{\parskip}{0.5cm}
----
-
 # Bayes Babies: A Manifesto
 
 "Geometric ergodicity is usually the necessary condition for MCMC estimators to follow a central limit theorem". Everyday we rack our brains around expressions such as this. At talks, in papers, blog posts and even (so called) tutorials. Simple concepts often hide behind complex jargon and formulae perpetuated by intellectual elitism, conservatism and self-preservation. And we're tired. Tired of failing to fully engage with presentations. Tired of spending hours trying to make sense of a paper. Tired of missing out on the many promised benefits of the holy grail of data science and machine learning: _Bayesian Statistics_.
