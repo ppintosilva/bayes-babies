@@ -62,7 +62,8 @@ You can read our manifesto [here](MANIFESTO.md). But don't take it too seriously
 
 ## Contact
 
-##### Bayes Babies @ Newcastle University, School of Computing
+#### Bayes Babies @ Newcastle University, School of Computing
 
 Mailing list: bayes-babies@newcastle.ac.uk
+
 Moderator: p.pinto-da-silva2@newcastle.ac.uk
