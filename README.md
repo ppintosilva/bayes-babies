@@ -9,7 +9,7 @@ Learning Bayesian Statistics, the baby way
 
 | Session 	| Date          	| Document                                 	  | Status            	|
 |---------	|---------------	|------------------------------------------	  |-------------------	|
-| 1       	| 1-3 April 2019 	| [link](sessions/session-1/session-1.adoc) 	| Draft in progress 	|
+| 1       	| 3 April 2019 	| [pretty](https://pedroswits.github.io/bayes-babies/sessions/session-1.html) [raw](sessions/session-1.adoc) 	| In review 	|
 | 2       	| -             	| -                                        	  |  -                 	|
 | 3       	| -             	| -                                        	  |  -                 	|
 | 4       	| -             	| -                                        	  |  -                 	|
