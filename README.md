@@ -7,12 +7,12 @@ Learning Bayesian Statistics, the baby way
 
 ## Sessions Tracker --  Newcastle University
 
-| Session 	| Date          	| Document                                 	| Status            	|
-|---------	|---------------	|------------------------------------------	|-------------------	|
-| 1       	| 29 March 2019 	| [link](sessions/session1/session-1.adoc) 	| Draft in progress 	|
-| 2       	| -             	| -                                        	|  -                 	|
-| 3       	| -             	| -                                        	|  -                 	|
-| 4       	| -             	| -                                        	|  -                 	|
+| Session 	| Date          	| Document                                 	  | Status            	|
+|---------	|---------------	|------------------------------------------	  |-------------------	|
+| 1       	| 29 March 2019 	| [link](sessions/session-11/session-1.adoc) 	| Draft in progress 	|
+| 2       	| -             	| -                                        	  |  -                 	|
+| 3       	| -             	| -                                        	  |  -                 	|
+| 4       	| -             	| -                                        	  |  -                 	|
 
 ---
 
