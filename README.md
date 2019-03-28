@@ -5,7 +5,7 @@ Learning Bayesian Statistics, the baby way
 
 ---
 
-## Session Tracker
+## Sessions Tracker --  Newcastle University
 
 | Session 	| Date          	| Document                                 	| Status            	|
 |---------	|---------------	|------------------------------------------	|-------------------	|
