@@ -14,21 +14,30 @@ EXTENSIONS_DIR         := extensions
 STYLESHEETS_DIR        := stylesheets
 
 SESSIONS_SUBDIRS       := $(wildcard $(SESSIONS_DIR)/session-*)
-BUILD_SESSIONS_SUBDIRS := $(patsubst %, $(BUILD_DIR)/%, $(SESSIONS_SUBDIRS))
+BUILD_SESSIONS_SUBDIRS := $(patsubst 	%,
+										$(BUILD_DIR)/%,
+										$(SESSIONS_SUBDIRS))
 
-SESSIONS_INPUT         := $(foreach dir,$(SESSIONS_SUBDIRS),$(wildcard $(dir)/*.adoc))
+SESSIONS_INPUT         := $(foreach dir,
+									$(SESSIONS_SUBDIRS),
+									$(wildcard $(dir)/*.adoc))
 
-SESSIONS_OUTPUT        := $(foreach dir,$(SESSIONS_SUBDIRS),\
-																		 $(patsubst $(dir)/%.adoc, \
-                                     $(BUILD_DIR)/$(dir)/%.html, \
-                                     $(SESSIONS_INPUT)))
+SESSIONS_OUTPUT        := $(foreach dir,
+									$(SESSIONS_SUBDIRS),\
+									$(patsubst \
+										$(dir)/%.adoc, \
+										$(BUILD_DIR)/$(dir)/%.html, \
+										$(SESSIONS_INPUT)))
 
-REFERENCES_INPUT       := $(foreach dir,$(SESSIONS_SUBDIRS),$(wildcard $(dir)/*.bib))
+REFERENCES_INPUT       := $(foreach dir,
+									$(SESSIONS_SUBDIRS),
+									$(wildcard $(dir)/*.bib))
 
-REFERENCES_OUTPUT      := $(foreach dir,$(SESSIONS_SUBDIRS),\
-																		 $(patsubst $(dir)/%.bib, \
-                                     $(BUILD_DIR)/$(dir)/%.bib, \
-                                     $(REFERENCES_INPUT)))
+REFERENCES_OUTPUT      := $(foreach dir,
+									$(SESSIONS_SUBDIRS),\
+										$(patsubst $(dir)/%.bib, \
+											$(BUILD_DIR)/$(dir)/%.bib, \
+											$(REFERENCES_INPUT)))
 #
 
 # EXTENSIONS             := ./$(EXTENSIONS_DIR)/*.rb
@@ -37,9 +46,9 @@ STYLESHEET             := golo.css
 STYLESHEETS_FLAG       := -a stylesheet=../../stylesheets/$(STYLESHEET)
 
  #-r $(EXTENSIONS)
-ASCIIDOCTOR_FLAGS      := -r asciidoctor-bibtex \
-													-b html5 \
-                          -D $(BUILD_DIR)
+ASCIIDOCTOR_FLAGS      := 	-r asciidoctor-bibtex \
+							-b html5 \
+							-D $(BUILD_DIR)
 #
 $(REFERENCES_OUTPUT) : $(REFERENCES_INPUT)
 	cp $< $@
@@ -49,10 +58,10 @@ $(REFERENCES_OUTPUT) : $(REFERENCES_INPUT)
 define asciidoctor-call
 	cd $(word 2,$^) && \
 	asciidoctor -a stylesheet=../../stylesheets/$(STYLESHEET) \
-							-r asciidoctor-bibtex \
-							-b html5 \
-							-D ../../$(word 3,$^) \
-							$(<:$(word 2,$^)/%=%)
+				-r asciidoctor-bibtex \
+				-b html5 \
+				-D ../../$(word 3,$^) \
+				$(<:$(word 2,$^)/%=%)
 endef
 
 # building adoc files into html files
@@ -135,4 +144,4 @@ debug:
 	echo "command:\n\t$(asciidoctor-call) FILENAME"
 
 .PHONY: all install install-gems styles dirs images references \
-        index html soft-clean clean debug
+		index html soft-clean clean debug
