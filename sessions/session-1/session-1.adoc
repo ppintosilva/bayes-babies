@@ -1,18 +1,12 @@
-= Of Coins and Tosses -- Bayes Babies Session 1
-
-:toc:
+= Of Tosses and Coins
+:toc: macro
+:toc-title: Contents
+:toclevels: 2
 :toc-placement!:
 :imagesdir: ../images
 :bibtex-style: apa
-:bibtex-file: sessions/session-1/references.bib
-
-ifdef::env-github[]
-:tip-caption: :bulb:
-:note-caption: :information_source:
-:important-caption: :heavy_exclamation_mark:
-:caution-caption: :fire:
-:warning-caption: :warning:
-endif::[]
+:bibtex-file: ../references.bib
+:stem:
 
 ++++
 <link rel="stylesheet"  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -22,11 +16,24 @@ ifndef::env-github[]
 :icons: font
 endif::[]
 
-[#img-bayes-babies]
-image::bayes-babies.png[A Bayesian baby, 250]
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+:theta: stem:[\theta]
+
+image::bayes-babies.png[A Bayesian baby, width=250, align="text-center"]
+
+[discrete]
+= Bayes Babies - Session 1
+
+---
 
 toc::[]
-
 
 == Learning Goals
 
@@ -52,109 +59,170 @@ ____
 
 == Motivating problem
 
-Consider the classic coin flip experiment: a coin is thrown into the air _n_ times and the outcome of each throw, head or tails, is recorded.
+Consider the classic coin flip experiment: a coin is thrown into the air _n_ times and the outcome of each throw, head or tails, is recorded. The purpose of the experiment is to determine whether the coin is *unbiased*, *positively biased* (i.e. heads occur more often than tails) or *negatively biased* (i.e. tails occur more often than heads).
 
 image::coin_flip.png[Coin Flip, width='25%']
 
+To that extent, two different subjects toss the coin 10 times, resulting in two distinct datasets:
+
+.Dataset A
+H  T  H  H  H  T  H  H  H  T
+
+.Dataset B
+H  T  H  T  H  T  H  T  H  T
+
+
 [NOTE]
 ====
-No information is given on whether the coin is **biased** or any initial conditions.
+No other information is recorded (e.g. height of toss, rotation, wind speed).
 ====
 
 == Model building
 
-1. What is an adequate **random variable** (r.v.) for representing the outcomes of the experiment? Can the r.v be used for _n_ = 1 and _n_ > 1?
+. What is an adequate *random variable* (r.v.) for representing the outcomes of the experiment? Consider cases when _n_ = 1 and _n_ > 1.
 
-2. **Data generating algorithm**: code up a function that generates a sequence of outcomes from _n_ coin tosses.
-  a. Besides _n_, what other parameters does your function have?
-	b. Generate a sequence of coin flips of size 10 (i.e. _n_ = 10). Set a constant value for the other parameters identified above.
-	c. How many different possible outcome sequences are there, as a function of _n_?
-
-+
-
-[CAUTION]
-====
-For reproducibility purposes and to ensure that we can compare results among each other, use the seed = 1337 when generating random numbers.
-====
-
-+
-
-3. What is an adequate **likelihood** function for modelling:
+. What is an adequate *likelihood* function for modelling:
 	a. The outcome of a single throw
 	b. The outcome of multiple throws
-	c. The exact sequence of throws (give this a thought and leave it for later if there is time)
-
+	c. The exact sequence of throws (give this a think and leave it for later if there is time)
 
 +
 
 [NOTE]
 ====
-The **likelihood** function represents the probability of observing the data given the parameters. How likely is the specific coin toss sequence that you've generated before, given the parameter values that you've used to generate the data?
+The *likelihood* function represents the probability of observing the data given the parameters. How likely is each dataset, assuming that the coin is unbiased? And assuming it's not?
 ====
 
 +
 
-[CAUTION]
+[WARNING]
 ====
-* What notation did you use to write down the **likelihood**?
-* What assumptions are made by the **likelihood**?
+What notation did you use to write down the *likelihood*?
 ====
 
 +
 
-4. Exploring the **likelihood**:
-  a. Compute the likelihood of the sequence generated in 2a.
-  b. Generate 19 new sequences of size _n_ = 10 using the same parameters that you've set in 2b (total of 20 experiments of size 10). Compute the likelihood for these new experiments.
-  c. Plot the likelihood using the data for your 20 experiments.
-  d. When is the likelihood at its maximum? How would this value change for
-
-
-5. Identify at least two priors for your parameters (two for each parameter if you have more than one).
-  a. aa
+. Why did you consider your choice of *likelihood* adequate?
+  a. What other parameters have you identified? We denote these by stem:[\theta].
+  b. What assumptions did you make?
+  c. Based on those assumptions, code up a function that represents the *data generation process*, i.e. that generates a sequence of outcomes from _n_ coin tosses according to stem:[\theta].
+  d. How many different possible outcome sequences are there, as a function of _n_?
 
 +
+
+. Exploring the *likelihood*:
+  a. Compute and plot the likelihood of each dataset, for varying values of stem:[\theta].
+  b. For which values of stem:[\theta] is the likelihood at its peak? Based on this information, what would you say about the properties of the coin?
+  c. Generate dummy data for an unbiased coin, using your *data generation algorithm*. Simulate 100 experiments (datasets) of _n_ = 10. Note that stem:[\theta] should be constant.
+  d. Compute and plot the likelihood for the simulated datasets of an unbiased coin.
+  e. Add an additional layer on top of this last plot: the likelihood of datasets _A_ and _B_ given that the coin is unbiased. What do you observe?
+
++
+
+[WARNING]
+====
+When simulating data, make sure you use a *seed* so that other can reproduce your dummy data and we can compare results among each other. Please use the seed = 1337 when generating random numbers.
+====
+
++
+
+. Exploring the *prior*:
+  a. Identify at least two priors for stem:[\theta]:
+  b. What is the intuition behind each of the priors? What prior knowledge are they encoding?
+  c. How do the priors differ? Which prior is more informative and which is less?
+  d. The priors are probability distributions and hence they also have parameters. These are called _hyperparameters_ and we denote them by stem:[\alpha].
+  e. Choose a value for each _hyperparameter_ in stem:[\alpha]. Why did you choose these values?
+  f. Compute and plot the priors for stem:[\theta], using the values you chose for stem:[\alpha].
+
++
+
 [NOTE]
 ====
 Informally, a prior represents the probability of a parameter before observing the data. A few things to consider when choosing a prior (as it is a probability distribution):
 
-* Is the parameter continuous or discrete (it is always numerical)?
+* Is the parameter continuous or discrete?
 * Does the parameter take only strictly positive values?
 * Are its values bounded between a specific interval (e.g. [0,1])?
 ====
-+
-
-6. Exploring the **prior**:
-  a. Compute and plot the prior(s) for the sequence generated in 2.
 
 +
-[CAUTION]
+
+[WARNING]
 ====
-* What notation did you use to write down the **prior**?
-* Does the prior?
+What notation did you use to write down the *prior*?
 ====
+
 +
 
-7. The posterior is the probability of the parameters given the data (or evidence). It is proportional to the **likelihood** times the **prior**. Using the intuition that you've developed above by exploring the **likelihood** and **prior**, what . How do you think that the size of the sequence _n_ affects this relationship?
+. Write down what your final model looks like: parameters, likelihood, priors and hyperparameters.
+
+
+. Think about the *posterior*, using the intuition developed above:
+  a. Put the plots of the prior and the likelihood (for your dummy data) side by side. What shape do you expect the posterior to have when a coin is unbiased according to your model?
+  b. How will the posterior differ for each of the priors identified above?
+  c. What effect do you think that the size of the sequence _n_ has on the posterior?
+  d. What is the job and the intuition behind the denominator term when computing the posterior?
+  e. Does the denominator have any influence on determining the shape of the posterior?
+
++
+[NOTE]
+====
+The posterior is the probability of the parameters given the data (or evidence) and is proportional to the *likelihood* times the *prior*.
+====
 
 == Model inference
 
-1. Compute the posterior using grid approximation.
+[start=8]
+. Compute the posterior using *grid approximation* cite:[McElreath2015(39-40)].
+  a. Use a grid with a small number of points (e.g. 5) and a grid with a larger number of points (e.g. 20).
+  b. Plot the posterior distribution in each of the two cases.
+  c. How good is one approximation compared to the other?
 
 +
 [TIP]
 ====
-* See (McElrath, 2015, pages ) for an example.
+* See (McElrath, 2015, pp. 39-40) for an explanation and example.
 ====
+
++
+
+. Draw 10,000 samples from the posterior.
+  a. Plot the samples and their density/histogram.
+  b. What is the point of sampling from the posterior?
+  c. Compute the following point estimates: maximum a posteriori (MAP), mean, median.
+  d. What is the intuition behind each of the point estimates above?
+
 
 == Model criticism
 
-1. Sample
+[start=9]
+. Compute the *posterior predictive distribution*
 
-== Bayesian Update
+[TIP]
+====
+Have a look at:
 
+  - https://stats.stackexchange.com/q/115157[this] stackexchange thread.
+  - https://www.cs.princeton.edu/courses/archive/fall11/cos597C/lectures/ppc.pdf[David Blei] on posterior predictive checks
+====
 
+== Discussion
 
-== What's next
+Consider the following scenarios:
+
+* Imagine that the coin has magic properties and that the probability of heads changes every 5 tosses.
+
+* Imagine that instead of the single coin, there are several coins with different properties to choose from at each trial:
+  - You would pick one coin at random, toss it and record the outcome.
+  - Someone else picks one coin, tosses it and tells you the outcome. You can't see which coin was tossed but you are told the outcome.
+
+How do you think your model would perform in each scenario? How would you rebuild your model in light of this new information?
+
+== Recommended Reading
+
+* cite:[McElreath2015] -- Chapters 2 and 3
+* cite:[Lambert2018] -- Chapters 2, 4 and 5
+* cite:[Pilon2015] -- Chapter 1
 
 == References
 
