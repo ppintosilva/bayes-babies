@@ -15,53 +15,53 @@ STYLESHEETS_DIR        := stylesheets
 
 SESSIONS_SUBDIRS       := $(wildcard $(SESSIONS_DIR)/session-*)
 BUILD_SESSIONS_SUBDIRS := $(patsubst 	%,
-										$(BUILD_DIR)/%,
-										$(SESSIONS_SUBDIRS))
+					$(BUILD_DIR)/%,
+					$(SESSIONS_SUBDIRS))
 
-SESSIONS_INPUT         := $(foreach dir,
-									$(SESSIONS_SUBDIRS),
-									$(wildcard $(dir)/*.adoc))
 
-SESSIONS_OUTPUT        := $(foreach dir,
-									$(SESSIONS_SUBDIRS),\
-									$(patsubst \
-										$(dir)/%.adoc, \
-										$(BUILD_DIR)/$(dir)/%.html, \
-										$(SESSIONS_INPUT)))
 
-REFERENCES_INPUT       := $(foreach dir,
-									$(SESSIONS_SUBDIRS),
-									$(wildcard $(dir)/*.bib))
+SESSIONS_INPUT         := $(foreach 	dir,
+					$(SESSIONS_SUBDIRS),
+					$(wildcard $(dir)/*.adoc))
 
-REFERENCES_OUTPUT      := $(foreach dir,
-									$(SESSIONS_SUBDIRS),\
-										$(patsubst $(dir)/%.bib, \
-											$(BUILD_DIR)/$(dir)/%.bib, \
-											$(REFERENCES_INPUT)))
-#
+SESSIONS_OUTPUT        := $(foreach 	dir,
+					$(SESSIONS_SUBDIRS),\
+					$(patsubst \
+						$(dir)/%.adoc, \
+						$(BUILD_DIR)/$(dir)/%.html, \
+						$(SESSIONS_INPUT)))
 
-# EXTENSIONS             := ./$(EXTENSIONS_DIR)/*.rb
-STYLESHEET             := golo.css
+REFERENCES_INPUT       := $(foreach 	dir,
+					$(SESSIONS_SUBDIRS),
+					$(wildcard $(dir)/*.bib))
 
-STYLESHEETS_FLAG       := -a stylesheet=../../stylesheets/$(STYLESHEET)
+REFERENCES_OUTPUT      := $(foreach 	dir,
+					$(SESSIONS_SUBDIRS),\
+					$(patsubst $(dir)/%.bib, \
+						$(BUILD_DIR)/$(dir)/%.bib, \
+						$(REFERENCES_INPUT)))
 
- #-r $(EXTENSIONS)
-ASCIIDOCTOR_FLAGS      := 	-r asciidoctor-bibtex \
-							-b html5 \
-							-D $(BUILD_DIR)
-#
+STYLESHEET		:= 	golo.css
+
+STYLESHEETS_FLAG       	:= 	-a stylesheet=../../stylesheets/$(STYLESHEET)
+
+
+ASCIIDOCTOR_FLAGS	:=	-r asciidoctor-bibtex \
+				-b html5 \
+				-D $(BUILD_DIR)
+
 $(REFERENCES_OUTPUT) : $(REFERENCES_INPUT)
 	cp $< $@
 
 # asciidoctor command
-# JANCKY AS FUCK - The last line is crazy: removes the subdirs of the adoc file (given by $SESSIONS_INPUT, using the subdirs saved in $SESSIONS_SUBDIRS)
+# JANCKY AS HELL - The last line is crazy: removes the subdirs of the adoc file (given by $SESSIONS_INPUT, using the subdirs saved in $SESSIONS_SUBDIRS)
 define asciidoctor-call
 	cd $(word 2,$^) && \
-	asciidoctor -a stylesheet=../../stylesheets/$(STYLESHEET) \
-				-r asciidoctor-bibtex \
-				-b html5 \
-				-D ../../$(word 3,$^) \
-				$(<:$(word 2,$^)/%=%)
+	asciidoctor 	-a stylesheet=../../stylesheets/$(STYLESHEET) \
+			-r asciidoctor-bibtex \
+			-b html5 \
+			-D ../../$(word 3,$^) \
+			$(<:$(word 2,$^)/%=%)
 endef
 
 # building adoc files into html files
@@ -144,4 +144,4 @@ debug:
 	echo "command:\n\t$(asciidoctor-call) FILENAME"
 
 .PHONY: all install install-gems styles dirs images references \
-		index html soft-clean clean debug
+	index html soft-clean clean debug
