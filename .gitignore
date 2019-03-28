@@ -1,0 +1,14 @@
+.DS_STORE
+
+# extensions adoc html sample
+extensions/*/*.html
+
+# stylesheets
+stylesheets
+
+# node modules
+node_modules
+
+# package lock
+package.json
+package-lock.json
