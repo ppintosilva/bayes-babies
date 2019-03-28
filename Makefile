@@ -14,28 +14,28 @@ EXTENSIONS_DIR         := extensions
 STYLESHEETS_DIR        := stylesheets
 
 SESSIONS_SUBDIRS       := $(wildcard $(SESSIONS_DIR)/session-*)
-BUILD_SESSIONS_SUBDIRS := $(patsubst 	%,
-					$(BUILD_DIR)/%,
+BUILD_SESSIONS_SUBDIRS := $(patsubst 	%, \
+					$(BUILD_DIR)/%, \
 					$(SESSIONS_SUBDIRS))
 
 
 
-SESSIONS_INPUT         := $(foreach 	dir,
-					$(SESSIONS_SUBDIRS),
+SESSIONS_INPUT         := $(foreach 	dir, \
+					$(SESSIONS_SUBDIRS), \
 					$(wildcard $(dir)/*.adoc))
 
-SESSIONS_OUTPUT        := $(foreach 	dir,
+SESSIONS_OUTPUT        := $(foreach 	dir, \
 					$(SESSIONS_SUBDIRS),\
 					$(patsubst \
 						$(dir)/%.adoc, \
 						$(BUILD_DIR)/$(dir)/%.html, \
 						$(SESSIONS_INPUT)))
 
-REFERENCES_INPUT       := $(foreach 	dir,
-					$(SESSIONS_SUBDIRS),
+REFERENCES_INPUT       := $(foreach 	dir, \
+					$(SESSIONS_SUBDIRS), \
 					$(wildcard $(dir)/*.bib))
 
-REFERENCES_OUTPUT      := $(foreach 	dir,
+REFERENCES_OUTPUT      := $(foreach 	dir, \
 					$(SESSIONS_SUBDIRS),\
 					$(patsubst $(dir)/%.bib, \
 						$(BUILD_DIR)/$(dir)/%.bib, \
