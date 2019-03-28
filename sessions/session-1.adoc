@@ -3,9 +3,9 @@
 :toc-title: Contents
 :toclevels: 2
 :toc-placement!:
-:imagesdir: ../images
+:imagesdir: images
 :bibtex-style: apa
-:bibtex-file: ../references.bib
+:bibtex-file: references.bib
 :stem:
 
 ++++
