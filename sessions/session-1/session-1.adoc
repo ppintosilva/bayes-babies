@@ -1,0 +1,161 @@
+= Of Coins and Tosses -- Bayes Babies Session 1
+
+:toc:
+:toc-placement!:
+:imagesdir: ../images
+:bibtex-style: apa
+:bibtex-file: sessions/session-1/references.bib
+
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+++++
+<link rel="stylesheet"  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+++++
+
+ifndef::env-github[]
+:icons: font
+endif::[]
+
+[#img-bayes-babies]
+image::bayes-babies.png[A Bayesian baby, 250]
+
+toc::[]
+
+
+== Learning Goals
+
+The **main goal** of this session is to introduce you to the machinery of Bayesian Statistics using a very simple, but effective, toy problem.
+
+In this session, you will:
+
+* Build a Bayesian statistical model and explore what each component of the model is and does.
+* Compute your model and perform inference: what has your model learned from the problem data?
+* Criticise the model to understand if it's doing what it was built to.
+
+This **cycle**: _Build, Compute, Critique and Repeat_ (Box's Loop) is at the core of Bayesian Statistics (and Statistics more generally) and is valid whether you're working on a toy example or doing you're own research cite:[Blei2014(3)].
+
+[#img-boxloop]
+.Taken from Blei (2014). See original caption below.
+image::box_loop.svg[Box's Loop, width='75%']
+
+.Box's Loop
+[quote, David M. Blei]
+____
+Building and computing with models are part of an iterative process for solving data-analysis problems. This is Box’s loop, a modern interpretation of the perspective of Box (1976)
+____
+
+== Motivating problem
+
+Consider the classic coin flip experiment: a coin is thrown into the air _n_ times and the outcome of each throw, head or tails, is recorded.
+
+image::coin_flip.png[Coin Flip, width='25%']
+
+[NOTE]
+====
+No information is given on whether the coin is **biased** or any initial conditions.
+====
+
+== Model building
+
+1. What is an adequate **random variable** (r.v.) for representing the outcomes of the experiment? Can the r.v be used for _n_ = 1 and _n_ > 1?
+
+2. **Data generating algorithm**: code up a function that generates a sequence of outcomes from _n_ coin tosses.
+  a. Besides _n_, what other parameters does your function have?
+	b. Generate a sequence of coin flips of size 10 (i.e. _n_ = 10). Set a constant value for the other parameters identified above.
+	c. How many different possible outcome sequences are there, as a function of _n_?
+
++
+
+[CAUTION]
+====
+For reproducibility purposes and to ensure that we can compare results among each other, use the seed = 1337 when generating random numbers.
+====
+
++
+
+3. What is an adequate **likelihood** function for modelling:
+	a. The outcome of a single throw
+	b. The outcome of multiple throws
+	c. The exact sequence of throws (give this a thought and leave it for later if there is time)
+
+
++
+
+[NOTE]
+====
+The **likelihood** function represents the probability of observing the data given the parameters. How likely is the specific coin toss sequence that you've generated before, given the parameter values that you've used to generate the data?
+====
+
++
+
+[CAUTION]
+====
+* What notation did you use to write down the **likelihood**?
+* What assumptions are made by the **likelihood**?
+====
+
++
+
+4. Exploring the **likelihood**:
+  a. Compute the likelihood of the sequence generated in 2a.
+  b. Generate 19 new sequences of size _n_ = 10 using the same parameters that you've set in 2b (total of 20 experiments of size 10). Compute the likelihood for these new experiments.
+  c. Plot the likelihood using the data for your 20 experiments.
+  d. When is the likelihood at its maximum? How would this value change for
+
+
+5. Identify at least two priors for your parameters (two for each parameter if you have more than one).
+  a. aa
+
++
+[NOTE]
+====
+Informally, a prior represents the probability of a parameter before observing the data. A few things to consider when choosing a prior (as it is a probability distribution):
+
+* Is the parameter continuous or discrete (it is always numerical)?
+* Does the parameter take only strictly positive values?
+* Are its values bounded between a specific interval (e.g. [0,1])?
+====
++
+
+6. Exploring the **prior**:
+  a. Compute and plot the prior(s) for the sequence generated in 2.
+
++
+[CAUTION]
+====
+* What notation did you use to write down the **prior**?
+* Does the prior?
+====
++
+
+7. The posterior is the probability of the parameters given the data (or evidence). It is proportional to the **likelihood** times the **prior**. Using the intuition that you've developed above by exploring the **likelihood** and **prior**, what . How do you think that the size of the sequence _n_ affects this relationship?
+
+== Model inference
+
+1. Compute the posterior using grid approximation.
+
++
+[TIP]
+====
+* See (McElrath, 2015, pages ) for an example.
+====
+
+== Model criticism
+
+1. Sample
+
+== Bayesian Update
+
+
+
+== What's next
+
+== References
+
+bibliography::[]
