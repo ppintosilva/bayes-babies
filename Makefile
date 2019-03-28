@@ -31,15 +31,9 @@ SESSIONS_OUTPUT        := $(foreach 	dir, \
 						$(BUILD_DIR)/$(dir)/%.html, \
 						$(SESSIONS_INPUT)))
 
-REFERENCES_INPUT       := $(foreach 	dir, \
-					$(SESSIONS_SUBDIRS), \
-					$(wildcard $(dir)/*.bib))
+REFERENCES_INPUT       := $(SESSIONS_DIR)/references.bib
 
-REFERENCES_OUTPUT      := $(foreach 	dir, \
-					$(SESSIONS_SUBDIRS),\
-					$(patsubst $(dir)/%.bib, \
-						$(BUILD_DIR)/$(dir)/%.bib, \
-						$(REFERENCES_INPUT)))
+REFERENCES_OUTPUT      := $(BUILD_DIR)/$(SESSIONS_DIR)/references.bib
 
 STYLESHEET		:= 	golo.css
 
