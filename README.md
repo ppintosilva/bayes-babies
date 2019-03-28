@@ -1,7 +1,7 @@
 # Bayes Babies
 Learning Bayesian Statistics, the baby way
 
-<img src="sessions/images/bayes-babies-logo.png" alt="A Bayesian baby" width="250"/>
+<img src="sessions/images/bayes-babies.png" alt="A Bayesian baby" width="275"/>
 
 ---
 
