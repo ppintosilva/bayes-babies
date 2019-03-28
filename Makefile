@@ -45,15 +45,20 @@ $(REFERENCES_OUTPUT) : $(REFERENCES_INPUT)
 	cp $< $@
 
 # asciidoctor command
+# JANCKY AS FUCK - The last line is crazy: removes the subdirs of the adoc file (given by $SESSIONS_INPUT, using the subdirs saved in $SESSIONS_SUBDIRS)
 define asciidoctor-call
-asciidoctor $(STYLESHEETS_FLAG) \
-            $(ASCIIDOCTOR_FLAGS) \
-						-R $(word 2,$^) \
-            $<
+	cd $(word 2,$^) && \
+	asciidoctor -a stylesheet=../../stylesheets/$(STYLESHEET) \
+							-r asciidoctor-bibtex \
+							-b html5 \
+							-D ../../$(word 3,$^) \
+							$(<:$(word 2,$^)/%=%)
 endef
 
 # building adoc files into html files
-$(SESSIONS_OUTPUT) : $(SESSIONS_INPUT) $(SESSIONS_SUBDIRS)
+# JANCKY WAY BECAUSE ASCIIDOCTOR-BIBTEX DOES NOT LIKE WHEN WE'RE NOT EXECUTING ASCIIDOCTOR
+# IN THE SAME DIRECTORY AS THE INPUT FILE - FOR SOME REASON - SO WE HAVE TO DO THIS HACK
+$(SESSIONS_OUTPUT) : $(SESSIONS_INPUT) $(SESSIONS_SUBDIRS) $(BUILD_SESSIONS_SUBDIRS)
 	$(asciidoctor-call)
 
 # stylesheets
@@ -129,5 +134,5 @@ debug:
 	echo "reference output files:\n\t$(REFERENCES_OUTPUT)" && \
 	echo "command:\n\t$(asciidoctor-call) FILENAME"
 
-.PHONY: all install install-gems styles dirs images \
+.PHONY: all install install-gems styles dirs images references \
         index html soft-clean clean debug
