@@ -7,14 +7,11 @@
 :bibtex-style: apa
 :bibtex-file: references.bib
 :stem:
+:icons: font
 
 ++++
 <link rel="stylesheet"  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 ++++
-
-ifndef::env-github[]
-:icons: font
-endif::[]
 
 ifdef::env-github[]
 :tip-caption: :bulb:
@@ -63,7 +60,7 @@ Consider the classic coin flip experiment: a coin is thrown into the air _n_ tim
 
 image::coin_flip.png[Coin Flip, width='25%']
 
-To that extent, two different subjects toss the coin 10 times, resulting in two distinct datasets:
+To that extent, two different subjects tossed the coin, 10 times each, resulting in two distinct datasets:
 
 .Dataset A
 H  T  H  H  H  T  H  H  H  T
@@ -79,62 +76,57 @@ No other information is recorded (e.g. height of toss, rotation, wind speed).
 
 == Model building
 
-. What is an adequate *random variable* (r.v.) for representing the outcomes of the experiment? Consider cases when _n_ = 1 and _n_ > 1.
+.Outcomes as random variables
+****
+Choose a *random variable* (r.v.) to represent the outcome of each experiment.
+****
 
-. What is an adequate *likelihood* function for modelling:
-	a. The outcome of a single throw
-	b. The outcome of multiple throws
-	c. The exact sequence of throws (give this a think and leave it for later if there is time)
-
-+
+.Introducing the likelihood
+****
+a. Choose a *likelihood* function to model the outcome of the experiment.
+b. Is your choice of *likelihood* adequate? Why?
+c. What other parameters, denoted by stem:[\theta], does the *likelihood* have (besides _n_)?
+d. What assumptions did you make?
+e. Based on those assumptions, code up a function that represents the *data generation process*, i.e. that generates a sequence of outcomes from _n_ coin tosses according to your model (the *likelihood* and its parameters: _n_ and stem:[\theta]).
+f. How many different possible outcome sequences are there, as a function of _n_?
+****
 
 [NOTE]
 ====
-The *likelihood* function represents the probability of observing the data given the parameters. How likely is each dataset, assuming that the coin is unbiased? And assuming it's not?
+The *likelihood* function represents the probability of observing the data (i.e. the outcome) given the parameters. How likely is the outcome in each dataset, assuming that the coin is unbiased? And assuming it's not?
 ====
 
-+
 
 [WARNING]
 ====
 What notation did you use to write down the *likelihood*?
 ====
 
-+
 
-. Why did you consider your choice of *likelihood* adequate?
-  a. What other parameters have you identified? We denote these by stem:[\theta].
-  b. What assumptions did you make?
-  c. Based on those assumptions, code up a function that represents the *data generation process*, i.e. that generates a sequence of outcomes from _n_ coin tosses according to stem:[\theta].
-  d. How many different possible outcome sequences are there, as a function of _n_?
-
-+
-
-. Exploring the *likelihood*:
-  a. Compute and plot the likelihood of each dataset, for varying values of stem:[\theta].
-  b. For which values of stem:[\theta] is the likelihood at its peak? Based on this information, what would you say about the properties of the coin?
-  c. Generate dummy data for an unbiased coin, using your *data generation algorithm*. Simulate 100 experiments (datasets) of _n_ = 10. Note that stem:[\theta] should be constant.
-  d. Compute and plot the likelihood for the simulated datasets of an unbiased coin.
-  e. Add an additional layer on top of this last plot: the likelihood of datasets _A_ and _B_ given that the coin is unbiased. What do you observe?
-
-+
+.Exploring the likelihood
+****
+a. Compute and plot the likelihood of each dataset, for varying values of stem:[\theta].
+b. For which values of stem:[\theta] is the likelihood at its peak? Based on this information, what would you say about the properties of the coin?
+c. Generate dummy data for an unbiased coin, using your *data generation algorithm*. Simulate 100 experiments (datasets) of _n_ = 10. Note that stem:[\theta] should be constant.
+d. Compute and plot the likelihood for the simulated datasets of an unbiased coin.
+e. Add an additional layer on top of this last plot: the likelihood of datasets _A_ and _B_ given that the coin is unbiased. What do you observe?
+****
 
 [WARNING]
 ====
-When simulating data, make sure you use a *seed* so that other can reproduce your dummy data and we can compare results among each other. Please use the seed = 1337 when generating random numbers.
+When simulating data, make sure you use a *seed* when generating random numbers, so that other can reproduce your dummy data and we can compare results among each other. Agree on a seed collectively (e.g. 1337).
 ====
 
-+
 
-. Exploring the *prior*:
-  a. Identify at least two priors for stem:[\theta]:
-  b. What is the intuition behind each of the priors? What prior knowledge are they encoding?
-  c. How do the priors differ? Which prior is more informative and which is less?
-  d. The priors are probability distributions and hence they also have parameters. These are called _hyperparameters_ and we denote them by stem:[\alpha].
-  e. Choose a value for each _hyperparameter_ in stem:[\alpha]. Why did you choose these values?
-  f. Compute and plot the priors for stem:[\theta], using the values you chose for stem:[\alpha].
-
-+
+.Introducing and exploring the prior
+****
+a. Identify at least two priors for stem:[\theta]:
+b. What is the intuition behind each of the priors? What prior knowledge are they encoding?
+c. How do the priors differ? Which prior is more informative and which is less?
+d. The priors are probability distributions and hence they also have parameters. These are called _hyperparameters_ and we denote them by stem:[\alpha].
+e. Choose a value for each _hyperparameter_ in stem:[\alpha]. Why did you choose these values?
+f. Compute and plot the priors for stem:[\theta], using the values you chose for stem:[\alpha].
+****
 
 [NOTE]
 ====
@@ -145,26 +137,29 @@ Informally, a prior represents the probability of a parameter before observing t
 * Are its values bounded between a specific interval (e.g. [0,1])?
 ====
 
-+
 
 [WARNING]
 ====
 What notation did you use to write down the *prior*?
 ====
 
-+
 
-. Write down what your final model looks like: parameters, likelihood, priors and hyperparameters.
+.The full model
+****
+Write down your final model: parameters, likelihood, priors and hyperparameters.
 
+_Watch out for the notation!_
+****
 
-. Think about the *posterior*, using the intuition developed above:
-  a. Put the plots of the prior and the likelihood (for your dummy data) side by side. What shape do you expect the posterior to have when a coin is unbiased according to your model?
-  b. How will the posterior differ for each of the priors identified above?
-  c. What effect do you think that the size of the sequence _n_ has on the posterior?
-  d. What is the job and the intuition behind the denominator term when computing the posterior?
-  e. Does the denominator have any influence on determining the shape of the posterior?
+.Introducing the posterior
+****
+a. Put the plots of the prior and the likelihood (for your dummy data) side by side. What shape do you expect the posterior to have when a coin is unbiased according to your model?
+b. How will the posterior differ for each of the priors identified above?
+c. What effect do you think that the size of the sequence _n_ has on the posterior?
+d. What is the job and the intuition behind the denominator term when computing the posterior?
+e. Does the denominator have any influence on determining the shape of the posterior?
+****
 
-+
 [NOTE]
 ====
 The posterior is the probability of the parameters given the data (or evidence) and is proportional to the *likelihood* times the *prior*.
@@ -172,31 +167,34 @@ The posterior is the probability of the parameters given the data (or evidence) 
 
 == Model inference
 
-[start=8]
-. Compute the posterior using *grid approximation* cite:[McElreath2015(39-40)].
-  a. Use a grid with a small number of points (e.g. 5) and a grid with a larger number of points (e.g. 20).
-  b. Plot the posterior distribution in each of the two cases.
-  c. How good is one approximation compared to the other?
+.Computing the model
+****
+a. Compute the posterior using *grid approximation* cite:[McElreath2015(39-40)].
+b. Use a grid with a small number of points (e.g. 5) and a grid with a larger number of points (e.g. 20).
+c. Plot the posterior distribution in each of the two cases.
+d. How good is one approximation compared to the other?
+****
 
-+
 [TIP]
 ====
-* See (McElrath, 2015, pp. 39-40) for an explanation and example.
+See (McElrath, 2015, pp. 39-40) for an explanation and example.
 ====
 
-+
-
-. Draw 10,000 samples from the posterior.
-  a. Plot the samples and their density/histogram.
-  b. What is the point of sampling from the posterior?
-  c. Compute the following point estimates: maximum a posteriori (MAP), mean, median.
-  d. What is the intuition behind each of the point estimates above?
-
+.Sampling from the posterior to perform inference
+****
+a. Draw 10,000 samples from the posterior.
+b. Plot the samples and their density/histogram.
+c. What is the point of sampling from the posterior?
+d. Compute the following point estimates: maximum a posteriori (MAP), mean, median.
+e. What is the intuition behind each of the point estimates above?
+****
 
 == Model criticism
 
-[start=9]
-. Compute the *posterior predictive distribution*
+.Introducing the posterior predictive distribution
+****
+a. Compute the *posterior predictive distribution*
+****
 
 [TIP]
 ====
