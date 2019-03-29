@@ -742,6 +742,7 @@ pre.pygments.highlight { background-color: rgba(16, 195, 196, 0.05); }
 .pygments .tok-c { color: #999 !important; }
 
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="article">
 <div id="header">
@@ -829,7 +830,7 @@ pre.pygments.highlight { background-color: rgba(16, 195, 196, 0.05); }
 </div>
 </div>
 <div class="paragraph">
-<p>To that extent, two different subjects toss the coin 10 times, resulting in two distinct datasets:</p>
+<p>To that extent, two different subjects tossed the coin, 10 times each, resulting in two distinct datasets:</p>
 </div>
 <div class="paragraph">
 <div class="title">Dataset A</div>
@@ -858,23 +859,41 @@ pre.pygments.highlight { background-color: rgba(16, 195, 196, 0.05); }
 <div class="sect1">
 <h2 id="_model_building">Model building</h2>
 <div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>What is an adequate <strong>random variable</strong> (r.v.) for representing the outcomes of the experiment? Consider cases when <em>n</em> = 1 and <em>n</em> &gt; 1.</p>
-</li>
-<li>
-<p>What is an adequate <strong>likelihood</strong> function for modelling:</p>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Outcomes as random variables</div>
+<div class="paragraph">
+<p>Choose a <strong>random variable</strong> (r.v.) to represent the outcome of each experiment.</p>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Introducing the likelihood</div>
 <div class="olist loweralpha">
 <ol class="loweralpha">
 <li>
-<p>The outcome of a single throw</p>
+<p>Choose a <strong>likelihood</strong> function to model the outcome of the experiment.</p>
 </li>
 <li>
-<p>The outcome of multiple throws</p>
+<p>Is your choice of <strong>likelihood</strong> adequate? Why?</p>
 </li>
 <li>
-<p>The exact sequence of throws (give this a think and leave it for later if there is time)</p>
+<p>What other parameters, denoted by \$\theta\$, does the <strong>likelihood</strong> have (besides <em>n</em>)?</p>
+</li>
+<li>
+<p>What assumptions did you make?</p>
+</li>
+<li>
+<p>Based on those assumptions, code up a function that represents the <strong>data generation process</strong>, i.e. that generates a sequence of outcomes from <em>n</em> coin tosses according to your model (the <strong>likelihood</strong> and its parameters: <em>n</em> and \$\theta\$).</p>
+</li>
+<li>
+<p>How many different possible outcome sequences are there, as a function of <em>n</em>?</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -883,7 +902,7 @@ pre.pygments.highlight { background-color: rgba(16, 195, 196, 0.05); }
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The <strong>likelihood</strong> function represents the probability of observing the data given the parameters. How likely is each dataset, assuming that the coin is unbiased? And assuming it&#8217;s not?</p>
+<p>The <strong>likelihood</strong> function represents the probability of observing the data (i.e. the outcome) given the parameters. How likely is the outcome in each dataset, assuming that the coin is unbiased? And assuming it&#8217;s not?</p>
 </div>
 </td>
 </tr>
@@ -903,31 +922,9 @@ pre.pygments.highlight { background-color: rgba(16, 195, 196, 0.05); }
 </tr>
 </table>
 </div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Why did you consider your choice of <strong>likelihood</strong> adequate?</p>
-<div class="olist loweralpha">
-<ol class="loweralpha">
-<li>
-<p>What other parameters have you identified? We denote these by \$\theta\$.</p>
-</li>
-<li>
-<p>What assumptions did you make?</p>
-</li>
-<li>
-<p>Based on those assumptions, code up a function that represents the <strong>data generation process</strong>, i.e. that generates a sequence of outcomes from <em>n</em> coin tosses according to \$\theta\$.</p>
-</li>
-<li>
-<p>How many different possible outcome sequences are there, as a function of <em>n</em>?</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Exploring the <strong>likelihood</strong>:</p>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Exploring the likelihood</div>
 <div class="olist loweralpha">
 <ol class="loweralpha">
 <li>
@@ -944,6 +941,11 @@ pre.pygments.highlight { background-color: rgba(16, 195, 196, 0.05); }
 </li>
 <li>
 <p>Add an additional layer on top of this last plot: the likelihood of datasets <em>A</em> and <em>B</em> given that the coin is unbiased. What do you observe?</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
 <div class="admonitionblock warning">
 <table>
 <tr>
@@ -952,18 +954,15 @@ pre.pygments.highlight { background-color: rgba(16, 195, 196, 0.05); }
 </td>
 <td class="content">
 <div class="paragraph">
-<p>When simulating data, make sure you use a <strong>seed</strong> so that other can reproduce your dummy data and we can compare results among each other. Please use the seed = 1337 when generating random numbers.</p>
+<p>When simulating data, make sure you use a <strong>seed</strong> when generating random numbers, so that other can reproduce your dummy data and we can compare results among each other. Agree on a seed collectively (e.g. 1337).</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Exploring the <strong>prior</strong>:</p>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Introducing and exploring the prior</div>
 <div class="olist loweralpha">
 <ol class="loweralpha">
 <li>
@@ -983,6 +982,11 @@ pre.pygments.highlight { background-color: rgba(16, 195, 196, 0.05); }
 </li>
 <li>
 <p>Compute and plot the priors for \$\theta\$, using the values you chose for \$\alpha\$.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1024,15 +1028,20 @@ pre.pygments.highlight { background-color: rgba(16, 195, 196, 0.05); }
 </tr>
 </table>
 </div>
-</li>
-</ol>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">The full model</div>
+<div class="paragraph">
+<p>Write down your final model: parameters, likelihood, priors and hyperparameters.</p>
 </div>
-</li>
-<li>
-<p>Write down what your final model looks like: parameters, likelihood, priors and hyperparameters.</p>
-</li>
-<li>
-<p>Think about the <strong>posterior</strong>, using the intuition developed above:</p>
+<div class="paragraph">
+<p><em>Watch out for the notation!</em></p>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Introducing the posterior</div>
 <div class="olist loweralpha">
 <ol class="loweralpha">
 <li>
@@ -1052,6 +1061,8 @@ pre.pygments.highlight { background-color: rgba(16, 195, 196, 0.05); }
 </li>
 </ol>
 </div>
+</div>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1066,20 +1077,19 @@ pre.pygments.highlight { background-color: rgba(16, 195, 196, 0.05); }
 </tr>
 </table>
 </div>
-</li>
-</ol>
-</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_model_inference">Model inference</h2>
 <div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic" start="8">
-<li>
-<p>Compute the posterior using <strong>grid approximation</strong> (<a href="#McElreath2015">McElreath&#44; 2015&#44; pp.&#160;39-40</a>).</p>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Computing the model</div>
 <div class="olist loweralpha">
 <ol class="loweralpha">
+<li>
+<p>Compute the posterior using <strong>grid approximation</strong> (<a href="#McElreath2015">McElreath&#44; 2015&#44; pp.&#160;39-40</a>).</p>
+</li>
 <li>
 <p>Use a grid with a small number of points (e.g. 5) and a grid with a larger number of points (e.g. 20).</p>
 </li>
@@ -1088,6 +1098,11 @@ pre.pygments.highlight { background-color: rgba(16, 195, 196, 0.05); }
 </li>
 <li>
 <p>How good is one approximation compared to the other?</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -1095,25 +1110,21 @@ pre.pygments.highlight { background-color: rgba(16, 195, 196, 0.05); }
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-<div class="ulist">
-<ul>
-<li>
+<div class="paragraph">
 <p>See (McElrath, 2015, pp. 39-40) for an explanation and example.</p>
-</li>
-</ul>
 </div>
 </td>
 </tr>
 </table>
 </div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Draw 10,000 samples from the posterior.</p>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Sampling from the posterior to perform inference</div>
 <div class="olist loweralpha">
 <ol class="loweralpha">
+<li>
+<p>Draw 10,000 samples from the posterior.</p>
+</li>
 <li>
 <p>Plot the samples and their density/histogram.</p>
 </li>
@@ -1128,20 +1139,24 @@ pre.pygments.highlight { background-color: rgba(16, 195, 196, 0.05); }
 </li>
 </ol>
 </div>
-</li>
-</ol>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_model_criticism">Model criticism</h2>
 <div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic" start="9">
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Introducing the posterior predictive distribution</div>
+<div class="olist loweralpha">
+<ol class="loweralpha">
 <li>
 <p>Compute the <strong>posterior predictive distribution</strong></p>
 </li>
 </ol>
+</div>
+</div>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1238,7 +1253,7 @@ pre.pygments.highlight { background-color: rgba(16, 195, 196, 0.05); }
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-03-28 20:25:34 UTC
+Last updated 2019-03-29 01:10:38 UTC
 </div>
 </div>
 <script type="text/x-mathjax-config">
