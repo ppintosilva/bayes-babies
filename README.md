@@ -5,20 +5,21 @@ Learning _Bayesian Statistics_ by doing, the baby way
 
 ---
 
-## Meet-up Tracker --  Newcastle University
+## Meet-up Tracker @ Newcastle University
 
 | Meet-up 	| Date          	| Session Document                                 	  | Status            	|
 |---------	|---------------	|------------------------------------------	  |-------------------	|
-| 1       	| 3 April 2019 	| [ Session 1: Of Tosses and Coins](https://pedroswits.github.io/bayes-babies/sessions/session-1.html) 	|  	|
-| 2       	| 24 April 2019  	| [ Session 1: Of Tosses and Coins](https://pedroswits.github.io/bayes-babies/sessions/session-1.html) (continued)                               	  |  Scheduled.                  	|
+| 1       	| 3 April 2019 	| [ Session 1: Of Tosses and Coins](https://pedroswits.github.io/bayes-babies/sessions/session-1.html) 	|  :white_check_mark: 	|
+| 2       	| 24 April 2019  	| [ Session 1: Of Tosses and Coins](https://pedroswits.github.io/bayes-babies/sessions/session-1.html) (continued)                               	  |  :clock1:                  	|
 | 3       	| -             	| -                                        	  |  -                 	|
 | 4       	| -             	| -                                        	  |  -                 	|
+| 5       	| -             	| -                                        	  |  -                 	|
 
 ---
 
 ## Who are the Bayes Babies?
 
-We're a group of PhD students at Newcastle University (U.K.) . Our goal is to learn _Bayesian Statistics_ from the ground up, as a team. "Learn by doing" and "show rather than simply tell" are our mottos.
+We're a group of PhD students at Newcastle University (:uk:) . Our goal is to learn _Bayesian Statistics_ from the ground up, as a team. "Learn by doing" and "show rather than simply tell" are our mottos.
 
 
 ## Learning material and meet-ups
