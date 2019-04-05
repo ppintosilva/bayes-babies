@@ -1,5 +1,5 @@
 # Bayes Babies
-Learning _Bayesian Statistics_ by doing, the baby way
+Learning _Bayesian Statistics_ by doing, the baby way :baby:
 
 <img src="sessions/images/bayes-babies.png" alt="A Bayesian baby in the wild" width="275"/>
 
@@ -38,7 +38,7 @@ The tasks should specify what the user has to do, but **should not** tell the us
 - Provide relevant references and bibliography.
 - Provide hints and tips if applicable.
 
-#### The meet-ups should
+### The meet-ups should
 
 - Follow a clear set of goals/exercises (usually described in a session document).
 - Not last for hours on end (2 hours _max_ as a rule of thumb).
