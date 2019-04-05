@@ -19,7 +19,7 @@ Learning _Bayesian Statistics_ by doing, the baby way
 
 ## Who are the Bayes Babies?
 
-We're a group of PhD students at Newcastle University (:uk:) . Our goal is to learn _Bayesian Statistics_ from the ground up, as a team. "Learn by doing" and "show rather than simply tell" are our mottos.
+We're a group of PhD students at Newcastle University. Our goal is to learn _Bayesian Statistics_ from the ground up, as a team. "Learn by doing" and "show rather than simply tell" are our mottos.
 
 
 ## Learning material and meet-ups
