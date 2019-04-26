@@ -9,8 +9,8 @@ Learning _Bayesian Statistics_ by doing, the baby way :baby:
 
 | Meet-up 	| Date          	| Session Document                                 	  | Status            	|
 |---------	|---------------	|------------------------------------------	  |-------------------	|
-| 1       	| 3 April 2019 	| [ Session 1: Of Tosses and Coins](https://pedroswits.github.io/bayes-babies/sessions/session-1.html) 	|  :white_check_mark: 	|
-| 2       	| 24 April 2019  	| [ Session 1: Of Tosses and Coins](https://pedroswits.github.io/bayes-babies/sessions/session-1.html) (continued)                               	  |  :clock1:                  	|
+| 1       	| 3 April 2019 	| [ Of Tosses and Coins](https://pedroswits.github.io/bayes-babies/sessions/session-1.html) 	|  :white_check_mark: 	|
+| 2       	| 26 April 2019  	| [Of Tosses and Coins](https://pedroswits.github.io/bayes-babies/sessions/session-1.html) (continued)                               	  |  :soon:                  	|
 | 3       	| -             	| -                                        	  |  -                 	|
 | 4       	| -             	| -                                        	  |  -                 	|
 | 5       	| -             	| -                                        	  |  -                 	|
@@ -19,7 +19,7 @@ Learning _Bayesian Statistics_ by doing, the baby way :baby:
 
 ## Who are the Bayes Babies?
 
-We're a group of PhD students at Newcastle University. Our goal is to learn _Bayesian Statistics_ from the ground up, as a team. "Learn by doing" and "show rather than simply tell" are our mottos.
+We're a group of PhD students at Newcastle University. Our goal is to learn _Bayesian Statistics_ from the ground up, as a team. "Learn by doing" is our motto.
 
 
 ## Learning material and meet-ups
@@ -42,7 +42,7 @@ The tasks should specify what the user has to do, but **should not** tell the us
 
 - Follow a clear set of goals/exercises (usually described in a session document).
 - Not last for hours on end (2 hours _max_ as a rule of thumb).
-- (Optionally) be preceded/followed by preparatory/supplmenetary work.
+- (Optionally) be preceded/followed by preparatory/supplementary work.
 - Start with an overview of the problem and input from each member of the group.
 - Be moderated so that the individual learning interests of each member are preserved and the meet-up stays on course according to the **session** plan and learning goals.
 - End with a summary of lessons learned, and a quick discussion on follow-up content and times for the next meet-up.
