@@ -10,8 +10,8 @@ Learning _Bayesian Statistics_ by doing, the baby way :baby:
 | Meet-up 	| Date          	| Session Document                                 	  | Status            	|
 |---------	|---------------	|------------------------------------------	  |-------------------	|
 | 1       	| 3 April 2019 	| [ Of Tosses and Coins](https://pedroswits.github.io/bayes-babies/sessions/session-1.html) 	|  :white_check_mark: 	|
-| 2       	| 26 April 2019  	| [Of Tosses and Coins](https://pedroswits.github.io/bayes-babies/sessions/session-1.html) (continued)                               	  |  :soon:                  	|
-| 3       	| -             	| -                                        	  |  -                 	|
+| 2       	| 26 April 2019  	| [Of Tosses and Coins](https://pedroswits.github.io/bayes-babies/sessions/session-1.html) (continued)                               	  |  :white_check_mark:                  	|
+| 3       	| 10 May 2019    	| Problems 4.1, 5.1 of A Student's Guide to Bayesian Statistics    |  :clock3:                 	|
 | 4       	| -             	| -                                        	  |  -                 	|
 | 5       	| -             	| -                                        	  |  -                 	|
 
