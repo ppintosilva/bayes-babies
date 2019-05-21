@@ -7,45 +7,46 @@ Learning _Bayesian Statistics_ by doing, the baby way :baby:
 
 ## Meet-up Tracker @ Newcastle University
 
-| Meet-up 	| Date          	| Session Document                                 	  | Status            	|
+| Meet-up 	| Date          	| Summary                                 	  | Status            	|
 |---------	|---------------	|------------------------------------------	  |-------------------	|
-| 1       	| 3 April 2019 	| [ Of Tosses and Coins](https://pedroswits.github.io/bayes-babies/sessions/session-1.html) 	|  :white_check_mark: 	|
-| 2       	| 26 April 2019  	| [Of Tosses and Coins](https://pedroswits.github.io/bayes-babies/sessions/session-1.html) (continued)                               	  |  :white_check_mark:                  	|
-| 3       	| 10 May 2019    	| Problems 4.1, 5.1 of A Student's Guide to Bayesian Statistics    |  :clock3:                 	|
-| 4       	| -             	| -                                        	  |  -                 	|
+| 1       	| 3 April 2019 	  | Overview and discussions of Bayesian Inference motivated by [the coin toss problem](https://pedroswits.github.io/bayes-babies/sessions/session-1.html)	|  :white_check_mark: 	|
+| 2       	| 26 April 2019  	| Overview and discussions of Bayesian Inference motivated by [the coin toss problem](https://pedroswits.github.io/bayes-babies/sessions/session-1.html)  |  :white_check_mark:   |
+| 3       	| 9 May 2019    	| Chapter 4 of the book (Likelihood) - Problem 4.1    |  :white_check_mark:  	|
+| 4       	| 24 May 2019    	| Chapter 5 of the book (Prior) - Problem 5.1      	  |                     	|
 | 5       	| -             	| -                                        	  |  -                 	|
+| 6       	| -             	| -                                        	  |  -                 	|
 
 ---
 
-## Who are the Bayes Babies?
+## Who are we?
 
 We're a group of PhD students at Newcastle University. Our goal is to learn _Bayesian Statistics_ from the ground up, as a team. "Learn by doing" is our motto.
 
+## Learning resources
 
-## Learning material and meet-ups
+We follow the book [A Student's Guide to Bayesian Statistics](https://ben-lambert.com/a-students-guide-to-bayesian-statistics/) by Ben Lambert.
 
-There are a lot of good references and reading+learning material for _Bayesian Statistics_. Now more than ever. We will borrow material from such sources and adapt it to guide our learning process and motivate our meet-ups.
+There are however other excellent resources to draw from!
 
-A **session** document describes a self-contained small-size project designed to guide learning and group discussion. Groups are responsible for organising the frequency of meet-ups, in which they share/discuss solutions to the problem and their understanding of the underlying theory/subject. The content of a session should (more often than not) be designed for a single meet-up. However, this is only a general guideline. Sessions can be split between several meet-ups depending on a variety of factors (time constraints, amount of preparation, etc).
+## Meet-ups
 
-The tasks should specify what the user has to do, but **should not** tell the user how to do it! The person or persons responsible for drafting the **session document** usually have a concrete idea of what the solution to the problem is or what they want the users to take away from the session. Hence, the tasks should be designed in such a way that users arrive at the knowledge/solution by themselves, rather than being told. As no prior knowledge is assumed, don't be afraid to be verbose and use layman's language when drafting a **session document**.
+The meet-ups usually consist of group discussion about selected problems from the book and concepts introduced earlier in the book.
 
-### The session document should
+Alternatively, members can propose custom study problems or small-size projects, that consist, for instance, of analysing a specific dataset. The problem and corresponding tasks should be described in a self-contained document. The tasks should specify what the user has to do, but **should not** tell the user how to do it! The person responsible for drafting the document usually has a concrete idea of what the solution to the problem is or what they want the users to take away from the session. Hence, the tasks should be designed in such a way that users arrive at the knowledge/solution by themselves (or are guided towards the solution), rather than being told. As no prior knowledge is assumed, don't be afraid to be verbose and use layman's language when drafting a **session document**.
 
-- Highlight the **learning goals** for the session.
-- Propose a **motivating** problem.
-- Identify a sequence of **tasks** that should be performed in order to solve the problem.
-- Provide relevant references and bibliography.
-- Provide hints and tips if applicable.
+### Organisation
 
-### The meet-ups should
+Groups are responsible for organising the frequency of meet-ups, in which they share/discuss solutions to the problem and their understanding of the underlying theory/subject. The content of a session should (more often than not) be designed for a single meet-up. However, this is only a general guideline. Sessions can be split between several meet-ups depending on a variety of factors (time constraints, amount of preparation, etc).
 
-- Follow a clear set of goals/exercises (usually described in a session document).
+The meet-ups should:
+
+- Follow a clear set of goals/exercises (e.g. reviewing a problem from the book, doing usually described in a session document).
 - Not last for hours on end (2 hours _max_ as a rule of thumb).
 - (Optionally) be preceded/followed by preparatory/supplementary work.
 - Start with an overview of the problem and input from each member of the group.
 - Be moderated so that the individual learning interests of each member are preserved and the meet-up stays on course according to the **session** plan and learning goals.
 - End with a summary of lessons learned, and a quick discussion on follow-up content and times for the next meet-up.
+
 
 ### Group moderator
 
@@ -54,7 +55,7 @@ The group moderator(s) is responsible for organising/coordinating the meet-ups a
 
 ## Contributions
 
-Everyone can contribute towards the drafting of session documents and related content (e.g. summary of lessons learned at the end of each session). GitHub offers the right platform for this. If you're not familiar with GitHub and pull requests, please check the [online documentation](https://help.github.com/en/articles/about-pull-requests). It boils down to the following steps:
+Everyone can contribute towards the pool of learning resources: custom problems/datasets, notes, session summaries, lessons learned, etc. GitHub offers the right platform for this. If you're not familiar with GitHub and pull requests, please check the [online documentation](https://help.github.com/en/articles/about-pull-requests). It boils down to the following steps:
 
 1. Fork this repository
 2. Make commits and push them to the master branch (or other branch) of your fork.
